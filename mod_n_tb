@@ -1,0 +1,17 @@
+module mod_n_tb();
+reg clk,rst;
+wire [3:0] q;
+parameter N=10;
+mod_n_counter dut(clk,rst,q);
+initial begin
+clk=0;
+forever #5 clk=~clk;
+end
+initial begin
+rst=1; #10;rst=0;
+#100;rst=1;
+#10; rst=0;
+#100;
+$finish;
+end
+endmodule
